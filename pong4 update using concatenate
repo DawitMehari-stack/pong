@@ -1,0 +1,31 @@
+-- This methos is an update version(pong4) main.lua file of Harvards cs50 course for game development 
+-- Its is a simple update to use concatinate(..) than if else statement for game state(in love.draw() method) 
+-- Dawit Mehari Fitur, davemehari@gmail.com              
+
+function love.draw()
+    push:apply('start')
+    -- Clear the screan with specific color; in this case, a color similar to
+    -- some version of the original pong
+    love.graphics.clear(40/255, 45/255, 52/255, 255/255)     
+    -- draw welcome text 
+    -- setting font for the game 
+    love.graphics.setFont(smallFont)
+    love.graphics.printf("hellow "..gameState.." State" , 0, 20, VIRTUAL_WIDTH, 'center')
+    
+    -- setting font for score
+    love.graphics.setFont(scoreFont)
+    love.graphics.print(tostring(player1Score), VIRTUAL_WIDTH / 2 - 50, VIRTUAL_HEIGHT / 3)
+
+    love.graphics.print(tostring(player2Score), VIRTUAL_WIDTH / 2 + 30, VIRTUAL_HEIGHT / 3)
+  
+    -- render first paddle (left side)
+    love.graphics.rectangle('fill', 10, player1Y, 5, 20) 
+    
+    -- render second paddle (right side)
+    love.graphics.rectangle('fill', VIRTUAL_WIDTH - 10, player2Y, 5, 20)
+
+    -- rendering ball center
+    love.graphics.rectangle('fill', ballX, ballY, 4, 4)
+
+    push:apply('end')    
+end
